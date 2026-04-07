@@ -1,0 +1,19 @@
+{
+  "status": "commited",
+  "type": "backend",
+  "scope": "codebase",
+  "localEndpoint": "http://localhost:3000/booking",
+  "backendAuthType": "basic token",
+  "backendUsername": "Administrator",
+  "backendPassword": "admin@123",
+  "executionArgs": {
+    "projectName": "wb-integration",
+    "projectPath": "/Users/pratul/frappe-bench/wb-integration",
+    "testIds": [],
+    "additionalInstruction": "Test the booking page at /booking - verify room types load, form can be filled, and booking flow works. Frappe backend at localhost:8000 must be running.",
+    "envs": {
+      "API_KEY": "sk-user-w8ipitR2GQrP0tVCyQsejvLOuPLViQTbss-NH2q54JhV6BD89WdiK7VeSullrHpiJsrnW_KFlfa4hftsxfa-rM3u0cvdXF2YDWWqoL66XOkWrywNfNscfuNmV7ZObtOrag8"
+    }
+  },
+  "serverPort": 55199
+}

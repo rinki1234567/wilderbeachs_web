@@ -1,0 +1,60 @@
+version: "2"
+type: frontend
+tech_stack:
+  - TypeScript
+  - Next.js 16
+  - React 19
+  - Tailwind CSS
+  - Frappe API (hotel_booking)
+features:
+  - name: Hotel Booking
+    description: Booking form with room type selection, availability check, guest details, and Razorpay payment
+    files:
+      - app/booking/page.tsx
+      - components/booking/booking-form.tsx
+      - components/booking/booking-summary.tsx
+      - app/booking/success/page.tsx
+    endpoints:
+      - method: GET
+        path: /api/booking/room-types
+        description: Fetch room types from Frappe
+        auth_required: false
+        response_schema:
+          "200": RoomType[]
+      - method: POST
+        path: /api/booking/availability
+        description: Check room availability
+        auth_required: false
+        request_schema:
+          body:
+            room_type: string
+            check_in: string
+            check_out: string
+        response_schema:
+          "200": number
+      - method: POST
+        path: /api/booking/create
+        description: Create booking
+        auth_required: false
+        request_schema:
+          body:
+            guest_name: string
+            email: string
+            room_type: string
+            check_in: string
+            check_out: string
+        response_schema:
+          "200": { booking_id: string, total_amount: number }
+      - method: POST
+        path: /api/booking/payment
+        description: Get Razorpay payment order
+        auth_required: false
+        request_schema:
+          body:
+            booking_id: string
+        response_schema:
+          "200": { order_id: string, key: string, amount: number }
+    depends_on:
+      - Frappe hotel_booking app
+      - NEXT_PUBLIC_FRAPPE_SITE_URL env
+known_limitations: []
