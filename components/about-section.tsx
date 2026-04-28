@@ -43,7 +43,7 @@ export default function AboutSection() {
         >
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">About WilderBeach Resort</h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Nestled along the pristine coastline, WilderBeach Resort offers an unparalleled luxury experience where
+            Nestled  along the pristine coastline, WilderBeach Resort offers an unparalleled luxury experience where
             modern elegance meets natural beauty. Our commitment to excellence ensures every moment of your stay is
             extraordinary.
           </p>

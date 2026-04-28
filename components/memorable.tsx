@@ -13,72 +13,69 @@ const experienceItems = [
 
 export default function MemorableExperience() {
   return (
-    <section className=" bg-[#0B2B26] py-32 px-4 md:px-8 relative overflow-hidden">
-      {/* Top Decoration Line (Screenshot match) */}
-      {/* <div className="absolute top-0 left-1/2 -translate-x-1/2  h-12 w-12   bg-gray-500/30"></div> */}
+    <section className="bg-[#0B2B26] py-20 px-6 relative overflow-hidden">
+      
+      {/* Background Blur Effect */}
+      <div className="absolute top-0 left-0 w-72 h-72 bg-emerald-400/10 blur-[120px]" />
+      <div className="absolute bottom-0 right-0 w-72 h-72 bg-amber-300/10 blur-[120px]" />
 
-      <div className="max-w-[1400px] mx-auto text-center">
-        
-        {/* Animated Header Section */}
+      <div className="max-w-6xl mx-auto text-center relative z-10">
+
+        {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          viewport={{ once: false, margin: "-100px" }}
+          transition={{ duration: 0.8 }}
         >
-          <p className="text-[10px] md:text-[11px] uppercase tracking-[0.6em] text-gray-400 mb-12 font-medium">
+          <p className="text-[11px] uppercase tracking-[0.5em] text-gray-400 mb-8 font-medium">
             WHAT'S MEMORABLE
           </p>
 
-          <div className="mb-24">
-            <h2 className="text-3xl md:text-5xl font-bold   text-white/70 font-mono mb-4">
+          <div className="mb-16">
+            <h2 className="text-2xl md:text-4xl font-semibold text-white/70 mb-3">
               22.2995° N, 80.5864° E
             </h2>
-            <p className="text-2xl md:text-3xl font-black  tracking-[0.1em] text-white  opacity-95 leading-none">
+
+            <p className="text-3xl md:text-5xl font-bold text-white leading-tight">
               Wilder Beach Experience
             </p>
+
+            {/* Decorative line */}
+            <div className="w-20 h-[2px] bg-amber-400 mx-auto mt-6 rounded-full" />
           </div>
         </motion.div>
 
-        {/* Icons Grid with Staggered Scroll Animation */}
-        <div className="grid grid-cols-2 md:grid-cols-6 gap-x-6 gap-y-20 px-4">
+        {/* Icons Section */}
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-5 md:gap-10 place-items-center">
           {experienceItems.map((item, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 60 }} // Niche se start hoga
-              whileInView={{ opacity: 1, y: 0 }} // Scroll karne par position par aayega
-              viewport={{ once: false, margin: "-50px" }}
-              transition={{ 
-                delay: index * 0.1, 
-                duration: 0.6, 
-                ease: "easeOut" 
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{
+                delay: index * 0.15,
+                duration: 0.6,
               }}
-              className="flex flex-col items-center group cursor-default"
+              className="flex flex-col items-center group"
             >
-              <div className="mb-8 relative h-15 w-15 flex items-center justify-center">
+              {/* Icon Circle */}
+              <div className="w-20 h-20 rounded-full border border-white/10 bg-white/5 backdrop-blur-md flex items-center justify-center mb-5 group-hover:scale-110 transition-all duration-500 shadow-lg">
                 <Image
                   src={item.icon}
                   alt={item.label}
-                  width={50}
-                  height={50}
-                  className="opacity-90 group-hover:scale-110 group-hover:opacity-100 transition-all duration-500 brightness-200"
+                  width={40}
+                  height={40}
+                  className="brightness-200  group-hover:rotate-6 transition-all duration-500"
                 />
               </div>
 
-              <p className="text-[10px] md:text-[12px]   font-bold text-white/80 group-hover:text-white transition-colors duration-300 max-w-[130px] leading-relaxed">
+              {/* Label */}
+              <p className="text-[10px] md:text-sm font-medium text-white/80 group-hover:text-white transition-colors duration-300 text-center max-w-[140px] leading-relaxed">
                 {item.label}
               </p>
             </motion.div>
           ))}
         </div>
-
-        {/* Bottom vertical line jesa screenshot me hai */}
-        {/* <motion.div 
-          initial={{ height: 0 }}
-          whileInView={{ height: 96 }}
-          transition={{ duration: 1, delay: 0.5 }}
-          className="mt-32 w-[0.5px] bg-gray-500/30 mx-auto"
-        >jnkjjkll</motion.div> */}
       </div>
     </section>
   )

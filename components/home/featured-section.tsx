@@ -97,7 +97,7 @@ export default function FeaturedSection() {
                 </p>
               </div>
 
-              <Link href="/about" className="group inline-flex items-center gap-6 py-2 border-b border-slate-200 hover:border-emerald-900 transition-all duration-500">
+              <Link href="/activities" className="group inline-flex items-center gap-6 py-2 border-b border-slate-200 hover:border-emerald-900 transition-all duration-500">
                 <span className="text-xs uppercase tracking-[0.2em] font-bold text-slate-800">Discover the Sanctuary</span>
                 <div className="w-10 h-10 rounded-full border border-slate-200 flex items-center justify-center group-hover:bg-emerald-900 group-hover:text-white group-hover:border-emerald-900 transition-all duration-500">
                   <ArrowRight size={16} />

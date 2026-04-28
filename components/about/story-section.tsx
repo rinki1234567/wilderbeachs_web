@@ -103,7 +103,7 @@ export default function StorySection() {
                 sunsets that paint the forest in golden hues. Every moment here brings you closer to nature—whether it’s the gentle flow of the river, the rustle of leaves, or the distant call of wildlife
               </p>
             </div>
-              <Link href="/about/history" className="inline-flex items-center gap-2 text-amber-900 font-bold text-[10px] uppercase tracking-[0.2em] pt-4 group">
+              <Link href="/activities" className="inline-flex items-center gap-2 text-amber-900 font-bold text-[10px] uppercase tracking-[0.2em] pt-4 group">
             <motion.button 
     whileHover={{ gap: "20px" }}
     whileTap={{ scale: 0.95 }} // Click karte waqt chota sa effect
@@ -164,7 +164,11 @@ export default function StorySection() {
                 </div>
                 <p className="text-md font-serif italic text-slate-800">Bunjar River Banks, Kanha</p>
                 <hr />
-                <p className="text-[10px] text-amber-700 mt-2 font-medium">Click to see gallery →</p>
+
+                <Link href="/gallery" className="text-amber-700 hover:text-amber-800 transition-colors">
+                 <p className="text-[10px] text-amber-700 mt-2 font-medium">Click to see gallery →</p>
+                </Link>
+                
               </div>
             </motion.div>
 

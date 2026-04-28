@@ -734,7 +734,7 @@ const activitySections = [
     accent: "The Heart of Kanha",
     description: "Discover the magic of the wild at Kanha National Park, the inspiration behind The Jungle Book. Explore diverse zones like Kanha, Kisli, Mukki, and Sarhi—each offering unique landscapes and wildlife experiences.",
     fullText: "Enjoy guided open jeep safaris in early morning and late afternoon—prime times for sightings of Bengal Tigers, Barasingha, Leopards, and Sloth Bears. Open from October to June, with peak sightings during summer (March–May).",
-    images: ["/images/a3.jpg", "/images/a9.jpg", "/about/about.jpg", "/about/about2.jpg"],
+    images: ["/images/a3.jpg", "/images/a2.jpg","/gallery/p2.jpg", "/gallery/p4.jpg", "/about/twoloin.jpg","/images/a10.jpg","/images/a10.jpg",],
     pardaLabel: "Safari Reveal",
     side: "left"
   },
@@ -744,47 +744,17 @@ const activitySections = [
     accent: "Tranquil Exploration",
     description: "Experience the outdoors intimately on our Guided Nature Walk or a serene stroll along the Bajer River, where the sparkling water creates a tranquil retreat.",
     fullText: "Led by expert naturalists, learn about local flora, fauna, and ecosystems. Spot birds and butterflies at sunrise with soft golden light or in the calm of sunset—perfect for photography or quiet contemplation.",
-    images: ["/images/a9.jpg", "/about/about2.jpg", "/images/a3.jpg", "/about/about.jpg"],
+    images: ["/images/a9.jpg", "/about/about2.jpg", "/gallery/r1.jpg", "/about/about.jpg", "/about/about.jpg"],
     pardaLabel: "Discover Nature",
     side: "right"
   },
-  {
-    id: "river-walk",
-    title: "Nature & River Walk",
-    accent: "Tranquil Exploration",
-    description: "Experience the outdoors intimately on our Guided Nature Walk or a serene stroll along the Bajer River, where the sparkling water creates a tranquil retreat.",
-    fullText: "Led by expert naturalists, learn about local flora, fauna, and ecosystems. Spot birds and butterflies at sunrise with soft golden light or in the calm of sunset—perfect for photography or quiet contemplation.",
-    images: ["/images/a9.jpg", "/about/about2.jpg", "/images/a3.jpg", "/about/about.jpg"],
-    pardaLabel: "Discover Nature",
-    side: "left"
-  }
+  
 ];
-const amenities = [
-    { 
-      t: "Cycling", 
-      l: "Adventure", 
-      d: "Discover the area at your own pace with our cycling facilities. Ride along scenic trails, through forests and open landscapes, and enjoy the freedom of exploring nature on two wheels. Cycling is a fun way to stay active, experience the environment up close, and feel the exhilaration of adventure at every turn. ", 
-      i: <Bike className="w-6 h-6" /> 
-    },
-    { 
-      t: "Modern Gym", 
-      l: "Wellness", 
-      d: "Stay committed to your fitness routine in our modern, fully equipped gym. Featuring cardio machines, strength training equipment, and free weights, it provides everything you need for a comprehensive workout. Whether you prefer a high-energy session or a gentle workout to stay active, the gym ensures you never miss your fitness goals, even while on vacation", 
-      i: <Activity className="w-6 h-6" /> 
-    },
-    { 
-      t: "Activity Room", 
-      l: "Recreation", 
-      d: "Our activity room is designed for entertainment, relaxation, and social engagement. Enjoy indoor games, creative activities, or simply gather with friends and family for shared moments of fun. This versatile space ensures that everyone—from kids to adults—can enjoy recreational time, no matter the weather.", 
-      i: <Users className="w-6 h-6" /> 
-    },
-    { 
-      t: "Conference Room", 
-      l: "Professional", 
-      d: "Our conference room offers a calm and comfortable setting for meetings, workshops, or small gatherings. With spacious seating and a peaceful atmosphere, it provides an ideal environment for discussions, brainstorming, or collaborative sessions in a relaxed and professional space.", 
-      i: <MessageSquare className="w-6 h-6" /> 
-    }
-  ];
+const amenities = [ 
+  { t: "Cycling", l: "Adventure", d: "Discover the area at your own pace with our cycling facilities. Ride along scenic trails, through forests and open landscapes, and enjoy the freedom of exploring nature on two wheels.",img: "/activity/cycling.jpg",i: <Bike className="w-6 h-6" />, }, 
+  { t: "Modern Gym", l: "Wellness", d: "Stay committed to your fitness routine in our modern, fully equipped gym. Featuring cardio machines, strength training equipment, and free weights, it provides everything you need for a comprehensive workout.",  img: "/activity/gym.jpg", i: <Activity className="w-6 h-6" />, }, 
+  { t: "Activity Room", l: "Recreation", d: "Our activity room is designed for entertainment, relaxation, and social engagement. Enjoy indoor games, creative activities, or simply gather with friends and family for shared moments of fun.", img: "/activity/room_activity.jpg", i: <Users className="w-6 h-6" />, }, 
+  { t: "Conference Room", l: "Professional", d: "Our conference room offers a calm and comfortable setting for meetings, workshops, or small gatherings.",  img: "/activity/conference.jpg", i: <MessageSquare className="w-6 h-6" />, }, ]
 
 // --- COMPONENT: AUTO SLIDING IMAGES (FOR CARDS) ---
 const FeatureSlider = ({ images }: { images: string[] }) => {
@@ -798,11 +768,20 @@ const FeatureSlider = ({ images }: { images: string[] }) => {
     <div className="relative w-full h-full overflow-hidden">
       <AnimatePresence mode="wait">
         <motion.div key={index} initial={{ opacity: 0, scale: 1.1 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0.1 }} transition={{ duration: 0.2 }} className="absolute inset-0 ">
-          <Image src={images[index]} fill className="object-cover" alt="Safari" />
-        </motion.div>
-      </AnimatePresence>
-      <div className="absolute inset-0  transition-colors     duration-200" />
-    </div>
+          <Image
+  src={images[index]}
+  fill
+  alt="Safari"
+  className="object-cover"
+  quality={70}
+  priority={index === 0}
+  loading={index === 0 ? "eager" : "lazy"}
+  sizes="(max-width: 768px) 100vw, 50vw"
+/>
+  </motion.div>
+  </AnimatePresence>
+  <div className="absolute inset-0  transition-colors     duration-200" />
+  </div>
   );
 };
 
@@ -841,13 +820,12 @@ const [expandedIdx, setExpandedIdx] = useState<number | null>(null);
               {/* THE "SINGLE SIDE PARDA" REVEAL */}
               <motion.div 
                 whileHover={{ x: "50%" }}
-                transition={{ duration: 1, ease: [0.76, 0, 0.24, 1] }}
+                transition={{ duration: 0.5, ease: [0.76, 0, 0.24, 1] }}
                 onClick={() => setSelected(section)}
                 className="absolute inset-0 bg-transparent/10 z-20 flex items-center justify-center border-l border-white/10 transition-all duration-1000"
               >
                 <div className="text-center">
-                  <span className="text-amber-500 text-[10px] tracking-[0.6em] uppercase block mb-4 opacity-60">Reveal</span>
-                  <h3 className="text-white text-3xl font-serif italic tracking-widest">{section.pardaLabel}</h3>
+       
                   <div className="mt-6 w-8 h-[1px] bg-white/20 mx-auto" />
                 </div>
               </motion.div>
@@ -883,107 +861,125 @@ const [expandedIdx, setExpandedIdx] = useState<number | null>(null);
           <p className="text-white/60 max-w-2xl mx-auto mb-12 font-light leading-relaxed text-lg">Secluded, rejuvenating spaces meticulously designed to serve as your sanctuary in the heart of Kanha.</p>
           <Link href="/accommodation">
             <motion.button whileHover={{ scale: 1.05 }} className="bg-white text-[#1a2e2a] px-12 py-5 rounded-full font-bold uppercase tracking-[0.3em] text-[10px] shadow-2xl flex items-center gap-3 mx-auto">
-              <Hotel className="w-4 h-4"/> Check Availability <ChevronRight className="w-4 h-4"/>
+              <Hotel className="w-4 h-4"/> Check Availability  <ChevronRight className="w-4 h-4"/>
             </motion.button>
           </Link>
         </div>
       </section>
 
-      {/* 4. OTHER AMENITIES: CLEAN GRID */}
-      <section className="py-32 bg-white relative overflow-hidden">
-            <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-[0.02] select-none">
+   {/* 4. OTHER AMENITIES */}
+<section className="py-32  relative overflow-hidden">
 
-        <h2 className="text-[25vw] font-serif italic text-[#1a2e2a] whitespace-nowrap">
+  {/* Background Watermark */}
+  <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-[0.03] select-none">
+    <h2 className="text-[18vw] font-serif text-[#1a2e2a] whitespace-nowrap">
+      WILDER • KANHA
+    </h2>
+  </div>
 
-          WILDER • KANHA • BEYOND
+  <div className="max-w-7xl mx-auto px-6 relative z-10">
 
-        </h2>
+    {/* Section Header */}
+    <div className="text-center mb-20 max-w-3xl mx-auto">
+      <span className="text-amber-700 font-bold tracking-[0.5em] text-[10px] uppercase block mb-5">
+        Resort Facilities
+      </span>
 
-      </div>
+      <h2 className="text-4xl md:text-6xl font-serif text-[#1a2e2a] leading-tight">
+        Life at <span className=" text-amber-900">Wilder Beach</span>
+      </h2>
 
+      <p className="mt-6 text-slate-500 text-sm md:text-base leading-relaxed font-light">
+        Experience comfort, adventure, wellness, and recreation with our thoughtfully designed facilities.
+      </p>
 
+      <div className="w-16 h-[2px] bg-amber-300 mx-auto mt-8" />
+    </div>
 
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
+    {/* Cards Grid */}
+    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 items-start">
+      {amenities.map((item, idx) => {
+        const isExpanded = expandedIdx === idx;
 
-       
-
-        {/* Section Header */}
-
-        <div className="text-center mb-20">
-
-          <span className="text-amber-800 font-bold tracking-[0.5em] text-[10px] uppercase block mb-4">
-
-            Resort Facilities
-
-          </span>
-
-          <h2 className="text-4xl md:text-6xl font-serif text-[#1a2e2a]">
-
-            Life at <span className="italic text-amber-900">Wilder Beach</span>
-
-          </h2>
-
-          <div className="w-12 h-[1px] bg-amber-200 mx-auto mt-8" />
-
-        </div>
-        </div>
-      {/* Background Decorative Element - Moving Text */}
-      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 items-start"> {/* items-start zaroori hai expand ke liye */}
-  {amenities.map((item, idx) => {
-    const isExpanded = expandedIdx === idx;
-
-    return (
-      <motion.div
-        key={idx}
-        layout // Smooth height transition ke liye
-        className="group relative bg-[#fcfbf8] border border-slate-100 rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-500"
-      >
-        {/* --- GREEN PARDA (Hover Effect) --- */}
-        <div className="absolute inset-0 bg-green-900/0 group-hover:bg-green-900/5 transition-colors duration-500 pointer-events-none" />
-
-        {/* --- ICON/IMAGE HEADER (Vaaman Style) --- */}
-        <div className="h-32 bg-[#1a2e2a] flex items-center justify-center relative overflow-hidden">
-          <div className="text-white opacity-20 absolute -right-4 -bottom-4 text-6xl font-serif">
-            0{idx + 1}
-          </div>
-          <div className="w-16 h-16 bg-white/10 backdrop-blur-md rounded-xl flex items-center justify-center text-amber-400 group-hover:scale-110 transition-transform duration-500">
-            {item.i}
-          </div>
-        </div>
-
-        {/* --- CONTENT AREA --- */}
-        <div className="p-8">
-          <span className="text-[10px] font-bold tracking-[0.3em] text-amber-700 uppercase block mb-2">
-            {item.l}
-          </span>
-          <h4 className="text-2xl font-serif text-[#1a2e2a] mb-4">
-            {item.t}
-          </h4>
-
-          <div className={`text-slate-500 text-sm leading-relaxed transition-all duration-500 ${isExpanded ? "" : "line-clamp-3"}`}>
-            {item.d}
-          </div>
-
-          {/* --- READ MORE / LESS BUTTON --- */}
-          <button
-            onClick={() => setExpandedIdx(isExpanded ? null : idx)}
-            className="mt-6 flex items-center gap-2 text-amber-800 font-bold text-[10px] uppercase tracking-widest hover:text-green-900 transition-colors"
+        return (
+          <motion.div
+            key={idx}
+            layout
+            whileHover={{ y: -10 }}
+            transition={{ duration: 0.4 }}
+            className="group relative bg-white border border-slate-100 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-500"
           >
-            {isExpanded ? (
-              <>Show Less <ArrowUpRight className="w-3 h-3 rotate-180" /></>
-            ) : (
-              <>Read More <ArrowUpRight className="w-3 h-3" /></>
-            )}
-          </button>
-        </div>
 
-        {/* Subtle Bottom Accent */}
-        <div className={`h-1 w-full bg-amber-500 transition-all duration-500 ${isExpanded ? "opacity-100" : "opacity-0"}`} />
-      </motion.div>
-    );
-  })}
-</div>
-    </section>
+            {/* IMAGE HEADER */}
+            <div className="relative h-64 overflow-hidden">
+
+              <Image
+                src={item.img}
+                alt={item.t}
+                fill
+                className="object-cover group-hover:scale-110 transition-transform duration-700"
+              />
+
+              {/* Gradient Overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
+
+              {/* Number */}
+              
+
+              {/* Category Badge */}
+              <div className="absolute top-4 left-4 px-2 py-1 bg-white/20 backdrop-blur-md rounded-full text-[9px] uppercase tracking-[0.3em] text-white font-bold border text-yellow-500 border-white/20">
+               {item.t}
+              </div>
+
+              {/* Bottom Content */}
+              <div className="absolute bottom-5 left-5 flex items-center gap-4">
+
+              
+          
+
+                {/* Title */}
+                
+              </div>
+            </div>
+
+            {/* CONTENT AREA */}
+            <div className="p-8">
+
+              <div
+                className={`text-slate-600 text-sm leading-relaxed transition-all duration-500 ${
+                  isExpanded ? "" : "line-clamp-3"
+                }`}
+              >
+                {item.d}
+              </div>
+
+              {/* BUTTON */}
+              <button
+                onClick={() => setExpandedIdx(isExpanded ? null : idx)}
+                className="mt-6 flex items-center gap-2 text-amber-700 font-semibold text-[11px] uppercase tracking-[0.2em] hover:text-[#1a2e2a] transition-all"
+              >
+                {isExpanded ? "Show Less" : "Read More"}
+
+                <ArrowUpRight
+                  className={`w-4 h-4 transition-transform duration-300 ${
+                    isExpanded ? "rotate-180" : ""
+                  }`}
+                />
+              </button>
+            </div>
+
+            {/* Bottom Accent Line */}
+            <div
+              className={`h-[3px] bg-gradient-to-r from-amber-400 to-amber-700 transition-all duration-500 ${
+                isExpanded ? "opacity-100" : "opacity-0"
+              }`}
+            />
+          </motion.div>
+        );
+      })}
+    </div>
+  </div>
+</section>
       {/* 5. FINALE MODAL: SIR'S FULL TEXT REVEAL */}
       <AnimatePresence>
         {selected && (

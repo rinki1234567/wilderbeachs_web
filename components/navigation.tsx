@@ -263,7 +263,7 @@ import { useState, useEffect } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { motion, AnimatePresence } from "framer-motion"
-import { Menu, X, Sparkles, Home, Info, Hotel, Waves, Images, Mail, Phone, Facebook, Instagram, Twitter } from "lucide-react"
+import { Menu, X, Sparkles, Home, Info, Hotel, Waves, Images, Mail, Phone, Facebook, Instagram, Twitter , ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import Image from "next/image"
 
@@ -354,7 +354,7 @@ export default function Navigation() {
       </div>
 
       <div className="max-w-8xl mx-auto px-4 sm:px-5 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+        <div className="flex justify-between items-center h-14">
           <motion.div whileHover={{ scale: 1.05 }}>
             <Link href="/" className="flex items-center space-x-3">
               <div className="relative w-20 h-20">
@@ -422,10 +422,10 @@ export default function Navigation() {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.5 }}
             >
-              <Link href="/booking">
-                <Button className="bg-[#0B2B26] hover:bg-[#0a3125] text-white px-6 py-3 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
-                  <Sparkles className="mr-2 h-4 w-4" />
-                  Book Now
+              <Link href="/accommodations">
+                <Button className="bg-[#0B2B26] hover:bg-[#0a3125] text-white  px-5 rounded-xl shadow-lg hover:shadow-xl transition-all  text-[10px] duration-300 hover:scale-105">
+                  <Sparkles className="mr-1 h-2 w-2" />
+                  Book Now 
                 </Button>
               </Link>
             </motion.div>
@@ -501,8 +501,8 @@ export default function Navigation() {
                 <motion.div variants={itemVariants} className="pt-8 pb-4">
                   <Link href="/booking">
                     <Button className="w-full bg-[#0e4131] hover:bg-[#0a3125] text-white py-3 rounded-xl shadow-lg">
-                      <Sparkles className="mr-2 h-4 w-4" />
-                      Book Now
+                      <Sparkles className="mr-12 h-4 w-4" />
+                     
                     </Button>
                   </Link>
                 </motion.div>
