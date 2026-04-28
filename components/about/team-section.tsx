@@ -10,10 +10,10 @@ import Link from "next/link"
 const teamMembers = [
   {
     id: 1,
-    name: "Mr. Ashis Tyagi",
+    name: "Mr. Ashish Tyagi",
     // position: "Founder & CEO",
     image: "/about/ashis.jpg",
-    bio: `Mr. Ashis Tyagi brings over three decades of dedicated experience in hospitality, wildlife resort management, and Himalayan adventure operations. His career has been shaped by a deep commitment to sustainable tourism, nature conservation, and delivering authentic wilderness experiences. From managing boutique wildlife resorts to leading specialized camping expeditions across the Himalayas, he has built a reputation for exceptional guest care, operational excellence, and a profound understanding of mountain environments. His vision continues to inspire immersive, responsible, and memorable journeys for travelers seeking the true spirit of the wild.`,
+    bio: `Mr. Ashis Tyagi brings over three decades of dedicated experience in hospitality, wildlife resort management, and Himalayan adventure operations.His career has been shaped by a deep commitment to sustainable tourism, nature conservation, and delivering authentic wildernes experiences.From managing boutique wildlife resorts to leading specialized camping expeditions across the Himalayas, he has built a reputation for exceptional guest care, operational excellence, and a profound understanding of mountain environments.His vision continues to inspire immersive, responsible, and memorable journeys for travelers seeking the true spirit of the wild.`,
     social: { linkedin: "#", twitter: "#", email: "james@wilderbeach.com" },
   },
   {
@@ -21,7 +21,7 @@ const teamMembers = [
     name: "Mr. Nitesh Anandan",
     // position: "General Manager",
     image: "/about/nitesh_anand.jpeg",
-    bio: `Mr. Nitesh Anandan is a dedicated wildlife researcher and award-winning wildlife photographer whose connection with nature began at the age of three, guided by his father, Mr. Anandan—a respected wildlife conservationist and photographer. He started his journey with birdwatching and gradually developed a deep fascination for reptiles and amphibians, a passion he has pursued for over 15 years. His work has contributed to the publication of few research papers, including the documentation of new species. Mr. Nitesh is also actively involved in management, bringing a blend of eld expertise, leadership, and a strong conservation-driven vision to every project he undertakes.`,
+    bio: `Mr. Nitesh Anandan is a dedicated wildlife researcher and award-winning wildlife photographer whose connection with nature began at the age of three, guided by his father, Mr. Anandan—a respected wildlife conservationist and photographer. He started his journey with birdwatching and gradually developed a deep fascination for reptiles and amphibians, a passion he has pursued for over 15 years. His work has contributed to the publication of few research papers, including the documentation of new species. Mr. Nitesh is also actively involved in management, bringing a blend of field expertise, leadership, and a strong conservation-driven vision to every project he undertakes.`,
     social: { linkedin: "#", twitter: "#", email: "nitesh@wilderbeach.com" },
   },
   {
@@ -29,7 +29,7 @@ const teamMembers = [
     name: "Mr. Sumit Gosain",
     // position: "Director of Operations",
     image: "/about/sumit.jpg",
-    bio: `Mr. Sumit Gosain is an accomplished hospitality professional with over a decade of experience in resort management, particularly within the rich wilderness of Kanha National Park. His career reflects a deep commitment to guest satisfaction, smooth operations, and delivering authentic nature-based hospitality experiences. Known for his strong leadership, attention to detail, and ability to create warm and memorable stays for guests, Mr. Sumit has played a key role in elevating resort standards in one of India’s most celebrated wildlife destinations. His expertise continues to contribute to high-quality service, sustainable practices, and a welcoming environment for travelers from around the world.`,
+    bio: `Mr. Sumit Gosain is an accomplished hospitality professional with over a decade of experience in resort management, particularly within the rich wilderness of Kanha National Park. His career re ects a deep commitment to guest satisfaction, smooth operations, and delivering authentic nature-based hospitality experiences. Known for his strong leadership, attention to detail, and ability to create warm and memorable stays for guests, Mr. Sumit has played a key role in elevating resort standards in one of India’s most celebrated wildlife destinations. His expertise continues to contribute to high-quality service, sustainable practices, and a welcoming environment for travelers from around the world.`,
     social: { linkedin: "#", twitter: "#", email: "david@wilderbeach.com" },
   },
   {
@@ -37,7 +37,7 @@ const teamMembers = [
     name: "Mr. Alok Juyal",
     // position: "Guest Experience Director",
     image: "/about/alok.jpg",
-    bio: `Mr. Alok Juyal is a seasoned management professional with over 15 years of experience in the hospitality industry. He is known for his strong leadership skills, operational expertise, and commitment to delivering high-quality guest experiences. Throughout his career, he has contributed to building efficient teams, improving service standards, and ensuring smooth, guest-focused operations. His dedication and professionalism continue to make him a valuable asset in the hospitality and management sector.`,
+    bio: `Mr. Alok Juyal is a seasoned management professional with over 15 years of experience in the hospitality industry. He is known for his strong leadership skills, operational expertise, and commitment to delivering high-quality guest experiences. Throughout his career, he has contributed to building ef cient teams, improving service standards, and ensuring smooth, guest-focused operations. His dedication and professionalism continue to make him a valuable asset in the hospitality and management sector`,
     social: { linkedin: "#", twitter: "#", email: "maria@wilderbeach.com" },
   }
 ]
@@ -95,7 +95,7 @@ export default function TeamSection() {
                   <hr />
                 {/* Content */}
                 <div className="p-8 flex flex-col flex-grow">
-                  <h3 className="text-xl font-bold text-[#112421] uppercase tracking-wider mb-1">{member.name}</h3>
+                  <h3 className="text-xl font-bold text-green-950 uppercase tracking-wider mb-1">{member.name}</h3>
                   {/* <p className="text-green-900 text-xs font-bold uppercase tracking-[0.2em] mb-6">{member.position}</p>
                    */}
                   {/* Bio with Read More/Less */}

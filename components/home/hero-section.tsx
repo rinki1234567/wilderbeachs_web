@@ -33,7 +33,7 @@ const heroSlides = [
   },
   {
     id: 3,
-    image: "/about/about3.jpg",
+    image: "/images/g5.png",
     title: "Infinite Relaxation",
     subtitle: "Dive into our infinity pools overlooking the ocean",
     cta: "View Amenities",
@@ -93,60 +93,59 @@ export default function HeroSection() {
       <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/30 z-10" />
 
       {/* Content */}
-      {/* Content */}
-<div className="relative z-20 h-full flex items-end justify-start pb-24 md:pb-32">
-  <div className="max-w-2xl px-6 md:px-14 text-left">
-    <AnimatePresence mode="wait">
-      <motion.div
-        key={currentSlide}
-        initial={{ opacity: 0, y: 40 }}
-        animate={{ opacity: 1, y: 0 }}
-        exit={{ opacity: 0, y: -40 }}
-        transition={{ duration: 0.7 }}
-      >
-        {/* Top Tag */}
-        {/* <div className="mb-5">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20">
-            <Sparkles className="h-3 w-3 text-amber-400" />
-            <span className="text-white text-[8px] tracking-[0.3em] uppercase">
-              Luxury Escape
-            </span>
-          </div>
-        </div> */}
-
-        {/* Title */}
-        <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white leading-tight mb-4">
-          {heroSlides[currentSlide].title}
-        </h1>
-
-        {/* Subtitle */}
-        <p className="text-sm md:text-base text-white/85 max-w-xl leading-relaxed mb-7 font-serif ">  
-          {heroSlides[currentSlide].subtitle}
-        </p>
-
-        {/* Buttons */}
-        <div className="flex flex-col sm:flex-row gap-4">
-          <Link href={heroSlides[currentSlide].ctaLink}>
-            <Button className="group bg-[#0e4131] hover:bg-[#0a3125] text-white px-6 py-5 rounded-full shadow-xl transition-all duration-300 hover:scale-105 text-sm font-medium">
-              <Sparkles className="mr-2 h-4 w-4" />
-              {heroSlides[currentSlide].cta}
-              <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-            </Button>
-          </Link>
-
-          <Link href="/contact">
-            <Button
-              variant="outline"
-              className="border-white/30 text-white hover:bg-white/10 px-6 py-5 rounded-full backdrop-blur-md text-sm bg-white/10"
+      <div className="relative z-20 h-full flex items-center justify-center">
+        <div className="text-center max-w-4xl px-6">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={currentSlide}
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -40 }}
+              transition={{ duration: 0.7 }}
             >
-              Contact Us
-            </Button>
-          </Link>
+              {/* Top Tag */}
+              <div className="mb-6 flex justify-center">
+                <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20">
+                  <Sparkles className="h-3 w-3 text-amber-400" />
+                  <span className="text-white text-[8px] tracking-[0.3em] uppercase">
+                    Luxury Escape
+                  </span>
+                </div>
+              </div>
+
+              {/* Title */}
+              <h1 className="text-xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-5">
+                {heroSlides[currentSlide].title}
+              </h1>
+
+              {/* Subtitle */}
+              <p className="text-sm    md:text-sm text-white/85 max-w-2xl mx-auto leading-relaxed mb-8">
+                {heroSlides[currentSlide].subtitle}
+              </p>
+
+              {/* Buttons */}
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Link href={heroSlides[currentSlide].ctaLink}>
+                  <Button className="group bg-[#0e4131] text-sm font-serif  hover:bg-[#0a3125] text-white px-4 py-4 rounded-full shadow-xl transition-all duration-300 hover:scale-105 text-sm">
+                    <Sparkles className="mr-2 h-4 w-4" />
+                    {heroSlides[currentSlide].cta}
+                    <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                  </Button>
+                </Link>
+
+                <Link href="/contact">
+                  <Button
+                    variant="outline"
+                    className="border-white/30   hover:bg-white/10 px-6 py-3 rounded-full backdrop-blur-md text-sm"
+                  >
+                    Contact Us
+                  </Button>
+                </Link>
+              </div>
+            </motion.div>
+          </AnimatePresence>
         </div>
-      </motion.div>
-    </AnimatePresence>
-  </div>
-</div>
+      </div>
 
       {/* Left Arrow */}
       <button
