@@ -69,12 +69,10 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  @apply bg-gradient-to-b from-ocean-400 to-ocean-600 rounded-full;
+  @apply bg-gradient-to-b from-green-900 to-green-950 rounded-full;
 }
 
-::-webkit-scrollbar-thumb:hover {
-  @apply from-ocean-500 to-ocean-700;
-}
+
 
 .glass {
   background: rgba(255, 255, 255, 0.1);
